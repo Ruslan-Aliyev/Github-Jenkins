@@ -1,0 +1,13 @@
+name: CI
+on: [push]
+jobs:
+  jenkins:
+    runs-on: ubuntu-latest
+    services:
+      jenkinserver:
+        image: jenkins/jenkins
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          command: run
+          jenkinsfile: Jenkinsfile
